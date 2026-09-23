@@ -60,9 +60,34 @@ int main(void) {
 
     // Total the price of all products
     float total = 0;
+
     for (Product *p = products; p != NULL; p = p->next)
     {
         total += p->price * p->quantity;
+    }
+
+    float discountTotal = total;
+
+    // Add discount for PWD (5%), Senior Citizen (20%), and Pregnant (30%), No discount for others
+    char *discountType = getString("Enter discount type (PWD, Senior, Pregnant, None): ");
+    float discount = 0;
+    if (discountType != NULL)
+    {
+        if (strcasecmp(discountType, "PWD") == 0)
+        {
+            discount = 0.05;
+            discountTotal -= discountTotal * discount;
+        }
+        else if (strcasecmp(discountType, "Senior") == 0)
+        {
+            discount = 0.20;
+            discountTotal -= discountTotal * discount;
+        }
+        else if (strcasecmp(discountType, "Pregnant") == 0)
+        {
+            discount = 0.30;
+            discountTotal -= discountTotal * discount;
+        }
     }
 
     // Print the list of products and prices
@@ -75,7 +100,7 @@ int main(void) {
     // Print the total price
     printf("Total: ₱%.2f\n", total);
 
-    
+    printf("Discounted Total: ₱%.2f\n", discountTotal);
 }
 
 
