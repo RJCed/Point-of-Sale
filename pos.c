@@ -58,7 +58,24 @@ int main(void) {
         }
     }
 
+    // Total the price of all products
+    float total = 0;
+    for (Product *p = products; p != NULL; p = p->next)
+    {
+        total += p->price * p->quantity;
+    }
 
+    // Print the list of products and prices
+    printf("\nProduct List:\n");
+    for (Product *p = products; p != NULL; p = p->next)
+    {
+        printf("Product: %s, Price: ₱%.2f, Quantity: %d\n", p->name, p->price, p->quantity);
+    }
+
+    // Print the total price
+    printf("Total: ₱%.2f\n", total);
+
+    
 }
 
 
