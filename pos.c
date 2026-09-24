@@ -67,7 +67,7 @@ int main(void) {
 
     float discountTotal = total;
 
-    // Add discount for PWD (5%), Senior Citizen (20%), and Pregnant (30%), No discount for others
+    // Add discount for PWD (5%), Senior Citizen (20%), and Pregnant (-30), No discount for others
     char *discountType = getString("Enter discount type (PWD, Senior, Pregnant, None): ");
     float discount = 0;
     if (discountType != NULL)
