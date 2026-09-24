@@ -36,7 +36,6 @@ int main(void) {
         int quantity = getInt("Enter Quantity: ");
         
 
-        //sprintf("Product: %s, Price: %.2f, Quantity: %d\n", name, price, quantity);
         // Create new product node
         Product *n = malloc(sizeof(Product));
         if (n == NULL) {
@@ -85,8 +84,8 @@ int main(void) {
         }
         else if (strcasecmp(discountType, "Pregnant") == 0)
         {
-            discount = 0.30;
-            discountTotal -= discountTotal * discount;
+            discount = 30.00;
+            discountTotal = discountTotal - discount;
         }
     }
 
