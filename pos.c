@@ -66,6 +66,7 @@ int main(void) {
     }
 
     float discountTotal = total;
+    int validDiscount = 0;
 
     // Add discount for PWD (5%), Senior Citizen (20%), and Pregnant (-30), No discount for others
     char *discountType = getString("Enter discount type (PWD, Senior, Pregnant, None): ");
@@ -76,19 +77,19 @@ int main(void) {
         {
             discount = 0.05;
             discountTotal -= discountTotal * discount;
-            printf("PWD discount applied: 5%%\n");
+            validDiscount = 1;
         }
         else if (strcasecmp(discountType, "Senior") == 0)
         {
             discount = 0.20;
             discountTotal -= discountTotal * discount;
-            printf("Senior discount applied: 20%%\n");
+            validDiscount = 1;
         }
         else if (strcasecmp(discountType, "Pregnant") == 0)
         {
             discount = 30.00;
             discountTotal = discountTotal - discount;
-            printf("Pregnant discount applied: ₱30.00\n");
+            validDiscount = 1;
         }
     }
 
@@ -101,7 +102,14 @@ int main(void) {
 
     // Print the total price
     printf("Total: ₱%.2f\n", total);
-
+    if (validDiscount != 0)
+    {
+        for(int i = 0; discountType[i]; i++)
+        {
+            discountType[i] = toupper(discountType[i]);
+        }
+        printf("Discount Type: %s\n", discountType);
+    }
     printf("Discounted Total: ₱%.2f\n", discountTotal);
 }
 
