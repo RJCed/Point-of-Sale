@@ -89,6 +89,12 @@ int main(void) {
         {
             discount = 30.00;
             discountTotal = discountTotal - discount;
+            // Additional check to ensure that the discounted total does not go below zero
+            if (discountTotal < 0)
+            {
+                discountTotal = 0;
+            }
+
             validDiscount = 1;
         }
     }
@@ -102,6 +108,8 @@ int main(void) {
 
     // Print the total price
     printf("Total: ₱%.2f\n", total);
+
+    // Print the discount type and discounted total if a valid discount was applied
     if (validDiscount != 0)
     {
         for(int i = 0; discountType[i]; i++)
