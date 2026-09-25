@@ -76,16 +76,19 @@ int main(void) {
         {
             discount = 0.05;
             discountTotal -= discountTotal * discount;
+            printf("PWD discount applied: 5%%\n");
         }
         else if (strcasecmp(discountType, "Senior") == 0)
         {
             discount = 0.20;
             discountTotal -= discountTotal * discount;
+            printf("Senior discount applied: 20%%\n");
         }
         else if (strcasecmp(discountType, "Pregnant") == 0)
         {
             discount = 30.00;
             discountTotal = discountTotal - discount;
+            printf("Pregnant discount applied: ₱30.00\n");
         }
     }
 
